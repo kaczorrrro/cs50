@@ -1,0 +1,114 @@
+
+cascading style sheet - css - stylizacja stron html
+format jêzyka
+property: value
+
+css sk³ada siê z 
+selector wybiera elementy do którego
+deklaracje siê stosuj¹
+selectro + declaration = rule
+
+<div id="footer">
+</div>
+podzia³ strony na czêœci
+
+i dziêki temu w css mogê odwo³ywaæ siê do footera:
+#footer
+{
+	font-size=20;
+}
+
+
+pierwszy sposó u¿ycia css:
+<div style="text-align: center;">
+do tagu dodaæ styl i tam wpisaæ dane css
+ma³o ogarniêty sposób ale dzia³a
+sposoby okreœlania czego ma siê tyczyæ dany zestaw styli nazywa siê selektorami
+
+sposób 2:
+nadaæ podzia³om takim jak np div albo body ich id:
+<div id="middle">
+
+i gdzieœ na górze strony np w header(albo tylko tam?) zamieœciæ dane :
+		<style>
+			body
+			{
+			}
+			#middle
+			{
+				font-size:32;
+			}
+		</style>
+gdzie to co siê wpisze bêdzie siê odnosi³o do ka¿dego podzia³u który ma id middle albo dla sekcji(wtedy bez #)
+
+jeszcze lepsze rozwi¹zanie to wyrzuciæ dane css do pliku css:
+			body
+			{
+				text-align: center;
+			}
+			#top
+			{
+				font-size:63;
+				font-weight:bold;
+			}
+//zawartoœæ pliku css.css
+i zlinkowaæ go w pliku html
+	<head>
+		<title>css 0</title>
+		<link href="css2.css" rel="stylesheet"/>
+		
+	</head>
+
+koniecznie z opisem relacji stylesheet
+
+
+
+# przy wybieraniu obiektów w css oznacza wybieranie po id
+mo¿na to po³¹czyæ np dla
+<div id="test">
+	<h1>
+		coœ
+
+aby napisaæ dla tego stylesheet nale¿y odnieœæ siê do
+#test h1
+jest w pizdu opcji tych selectorów: wybieranie typów, albo tylko wtedy gdy siê najedzie myszk¹ itd
+
+
+tag mo¿e mieæ klasê np
+<div class="image">
+id musi byæ unikatowe a klasa mo¿e byæ dla wielu tagów
+
+selectors:
+id:
+#idElementu
+{}
+
+typu:
+typElem
+{}
+
+klasy:
+.klasaElem
+
+atrybutu
+[type="radio"]
+{}
+(zaznaczy to obiekty gdzie <input type="radio">
+
+albo pseudo selektory np 
+#rob:hover{}	(w tym wypadku oznacza to najechanie myszk¹)
+spacja oznacza all children, przecinek pozwala wymieniaæ konkretnie,
+ > oznacza tylko nastêpne dzieci
+np
+rob > h1
+<rob>
+	<h1>//tak
+		<h1>//ju¿ nie
+
+~ oznacza wyst¹pienia po
+np 
+#rob ~ h1
+zaznacza ka¿de h1 po sekcji rob
++ oznacza dany nastêpny na tym samym poziomie 
+
+

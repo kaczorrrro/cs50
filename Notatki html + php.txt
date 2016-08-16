@@ -1,0 +1,305 @@
+HTML
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> tytu³ </title>
+	</head>
+
+	<body>
+		tekst
+	</body>
+
+</html>
+
+HTML: <tag atrybut="wartoœæ:></koniec taga>
+
+
+<img alt="opis obrazka jeœli siê nie wyœwitli" src="cat.jpg" />		-	 wstawianie zdjêcia
+<a href="www.google.com">search for cats<a/>
+
+tag: a
+atrybut: href="www.google.com"
+ten link jest domyœlnie adresowany wzglêdnie wiêc w takiej postaci przegl¹darka bêdzie szukaæ google na localhoscie
+
+href=http://google.com powinno dzia³aæ ok - i dzia³a
+href - hyper reference
+
+
+inne tagi:
+<ul>
+<li> coœ </li>
+<li> cos2 </li>
+
+</ul>
+
+ul - unsorted list
+li - list item
+
+<p> paragraf </p>
+
+
+tablica:
+<table (opcjonalnie) border="1">
+<tr>
+	<td> 1 </td>
+	<td> 2 </td>
+	<td> 3 </td>
+</tr>
+<tr>
+	<td> 4 </td>
+...
+</tr>
+
+tr - table row
+td - table data
+
+przytrzymanie shitfa pozwala na reload ca³ej strony bez u¿ycia pamiêci podrêzcnej
+
+<h1> </h1> - tag nag³ówka i poziomu
+
+html posiada 6 tagów na ró¿ne poziomy nag³ówków:
+<h1> ... itd
+
+
+linki:
+This is <a href="http://google.com">Link</a>
+
+
+lista
+		<ol>
+			<li> O1 </li>
+			<li> o2 </li>
+			<li> o3 </li>
+		</ol>
+gdzie ol to ordered list
+ul - to unordered list czyli lista bez numerków
+
+paragraphs:
+		<p>
+			zawartoœæ paragrafu
+		</p>
+		
+		<p>
+			i drugiego
+		</p>
+
+
+
+
+
+
+tworzenie pola które bêdzie kierowa³o do linka:
+<form action="http://google.com/search" method="get">
+	<input name="q" type="text"/>
+	<input type="submit" value="cs50 search"/>
+</form>
+
+przegl¹darka dodaje sama z siebie do adresu "?" po którym nastêpuje nazwa inputu potem "=" i dalej treœæ pola
+
+
+dodawanie css do html
+	<head>
+		<title>css 0</title>
+		<link href="css2.css" rel="stylesheet"/>
+		
+	</head>
+
+<br/>
+breakline
+
+
+tag mo¿e mieæ klasê np
+<div class="image">
+id musi byæ unikatowe a klasa mo¿e byæ dla wielu tagów
+
+
+// typy: text, radio, checkbox, select
+
+
+	//trochê bardziej skomplikowany form (
+
+
+        <form action="register0.php" method="post">		//form który do pliku register0.php wyœle metod¹ post swoj¹ zawartoœæ
+            Name: <input name="name" type="text"/>		//pole do wpisywania tekstu
+            <br/>
+            <input name="captain" type="checkbox"/>Captain?	//checkbox
+            </br>
+            <input name="gender" type="radio" value="F"/>Female	//po³¹czone ze sob¹ radiobuttony (wykluczaj¹ce siê)
+            <input name="gender" type="radio" value="M"/>Male
+            </br>
+            
+            Dorm:						//lista do wybierania
+            <select name="dorm">
+                <option value=""></option>
+                <option value="val-1">Val1</option>
+                <option value="val-2">Val2</option>
+            </select>
+            </br>
+            <input type="submit" value="Register">		//button to wys³ania formularza (z napisem Register)
+        </form>
+
+
+tag <pre> - preformated text to be printed in monospaced font
+
+
+php: metoda print_r() - print recursevly - drukuje ca³a zawartoœæ np tablicy
+
+    <body>
+           <?php  if( empty($_POST["name"]) || empty ($_POST["gender"]) || empty($_POST["dorm"])):  ?> 
+           You must provide gender, name and dorm. Go <a href=froshims2.php>back</a>
+           <?php else: ?>
+           You are almost registered
+           <?php endif ?>
+  
+    </body>						//kod z warunkowymi instrunkcjami php zawartymi w hmtlu
+							//zamiast u¿ywaæ {} u¿yto if(coœ): bla bla else:
+							//coœ takiego wymaga jednak zakoñczenia stwierdzeniem endif
+
+u¿ywanie sesji:
+aby u¿ywaæ zmiennej $_SESSION
+nale¿y najpierw wywo³aæ metodê
+session_start();			//zawsze trzeba rozpocz¹æ jeœli dalej w kodzie chce siê wykorzystwywaæ zmienn¹ $_SESSION
+
+session_destroy();	- niszczy dane z sesji
+
+
+&#numer; - dla znaków specjalnych jak np r w kó³ku
+
+
+funkcja empty sprawdza czy pod danym kluczem nie ma nic w tablicy
+empty($_POST["name"]) 
+
+funkcja header wysy³a zapytanie http do klienta
+u¿ycie
+header("Location:adres");
+
+funckja isset(tablica albo konkretny klucz tablicy) zwraca czy wartosæ jest ustationa, zwraca false tylko dla null
+funkcja empty zwraca false dla 0, pustych stringów nulla itd
+
+np jeœli zmienna $abc nie zosta³a nigdy wczeœniej wspomniana to issets($abc) zwróci false
+isset zwraca false dla zmiennej $_SESSION jeœli sesja nie zosta³a rozpoczêta, zwraca tak¿e false dla kazdego potencjalnego podklucza tej tablicy
+
+wstawienie wartosci z php do htmla
+<?=$num?>
+<?= oznacza "echo out"
+
+objekt->pole (nie wiem czy metody te¿)
+do funkcji mo¿na przekazaæ zmienn¹ za pomoc¹ tablicy asocjacji
+<?php renderHeader(["title" => "CS50"]); ?>
+
+funkcja gdzie jeœli nie podamy argumentów to przyjm¹ one domyœln¹ wartoœæ:
+function rednerFooter($data = [])	w tym przyk³adzie $ data stanie siê pust¹ tablic¹
+
+funkcja która przyjmuje 2 argumenty
+function render($template,$data = [])
+file_exists($path)	-	sprawdzanie czy plik istnieje
+
+
+dostawanie siê do nadkatalogu
+$path = __DIR__."/../Templates/" . $template . ".php";
+__DIR__ - sta³a której wartoœæ to lokalizacja danego pliku php
+
+
+<form method=post action="<? $_SERVER['PHP_SELF'] ?>"> 		//form który submituje siê do samego siebie....
+np mo¿na napisaæ kod w php na góre strony który sprawdza czy pole z danego forma zota³o wype³nione, jeœli tak to robi coœ co ma robiæ( np zapisuje wartoœæ tego pola jako plik cookie) a potem przekierowuje nas na inn¹ stronê. Przyk³ad
+<?php
+
+session_start();
+
+if( isset($_POST["name"]) )
+{
+    $_SESSION["name"] = $_POST["name"];
+    header("Location: index.php");
+}
+
+?>
+
+<html>
+    <body>
+        <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+            <input type="text" name="name"> Name
+            <br/>
+            <input type="submit" value="Log in">
+        </form>
+    </body>
+</html>
+
+aby usun¹æ dane z sesji najpierw trzeba znów j¹ rozpocz¹æ
+session_start();
+a potem zniszczyæ
+session_destroy();
+
+php za 1 razem jak tworzymy sesjê tworzy losow¹ liczbê która jest session id
+mo¿na j¹ wydrukowaæ
+print(session_id());
+
+jeœli napiszemy stronkê w php
+<?php
+printf("tekst\n");
+printf("tekst2\n");
+?>
+to wyœwieltli siê ona jako
+tekst tekst2
+bez enterów
+bo przecie¿ enter w htmlu oznacany jest jako <br/> a nie po prostu newline char
+
+php pozwala na zapamiêtywanie sta³ych za pomoc¹ define("odnoœnik","wartoœæ");
+
+
+funckja in_array(igla,siano) szuka igly w tablicy siano
+
+<form>
+<input placeholder="cos">
+placeholder to ma³a wskazówka co powinno sie w tym polu znaleŸæ
+
+The <fieldset> tag is used to group related elements in a form.
+The <fieldset> tag draws a box around the related elements.
+
+sta³a $_SERVER zawiera informacje o wykonywanym pliku php:
+'PHP_SELF'
+The filename of the currently executing script, relative to the document root. For instance, $_SERVER['PHP_SELF'] in a script at the address http://example.com/foo/bar.php would be /foo/bar.php.
+
+sprawdzaj¹æ co zwraca funkcja query trzeba u¿ywaæ === bo jeœli nie zwórci nic czyli jakby 0 to 0 == false daje prawdê z uwagi na ukryte castowanie
+jeœli nie uda siê wykonaæ polecenia zwracae jset false
+
+
+w miarê ³adny sposób na drukowanie zmiennch w php
+<?php foreach ($positions as $position): ?>
+
+    <tr>
+        <td><?= $position["symbol"] ?></td>
+        <td><?= $position["shares"] ?></td>
+        <td><?= $position["price"] ?></td>
+    </tr>
+
+<?php endforeach ?>
+
+&emsp; - spacja
+
+
+    function issetor(&$var, $default = false) //funkcja która zwraca zmienn¹ jesli ona istnieje a jeœli nie to wartoœæ domyœln¹
+    {
+         return isset($var) ? $var : $default;
+    }
+<?php print('value="' . issetor($data["imie"]) . '"');?>	//coœ takiego dzia³a ¿eby  uzupe³niaæ dane które ktoœ wczeœniej wprowadzi³
+
+
+<span> - paragraf w tej samej linii
+
+//typowa pêtla foreach
+foreach ($cos as $value)
+{
+
+}
+
+ale jeœli chcê umieœciæ pomiêdzy kod html to wygl¹da to tak
+        <?php foreach($names as $name):?>
+ 
+       
+            <option value = <?=$name?> > <?=$name?> </option>
+  
+        <?php endforeach ?>
+
+ró¿nica jest taka ¿e po  () jest :
+a ca³oœæ koñczy siê endforeach

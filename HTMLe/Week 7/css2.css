@@ -1,0 +1,20 @@
+			body
+			{
+				text-align: center;
+			}
+		
+			#top
+			{
+				font-size:63;
+				font-weight:bold;
+			}
+			
+			#middle
+			{
+				font-size:32;
+			}
+			
+			#bottom
+			{
+				font-size:10;
+			}

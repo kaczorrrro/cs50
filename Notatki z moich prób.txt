@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+magiczna linijka ¿eby polskie znaki dzia³a³y
+
+<form action="http://google.com/search" method="get">//pocz¹tek formy
+	<input name="q" type="text"/>				//uwaga, to ma NAZWE i typ
+	<input type="submit" value="cs50 search"/>		//a to ma TYP i wartoœæ
+</form>
+
+¿eby uzywaæ php w moim kodzie nie mogê go po prostu otwieraæ w google chrome bo nie one maj¹ interperter a otwieraæ je na serwerze który to php ob³suguje 
+
+<?= COS?>
+tak wygl¹da kawa³ek kodu php w kodzie html

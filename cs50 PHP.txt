@@ -1,0 +1,168 @@
+<?php
+
+
+?>
+
+
+$zmienna - za ka¿dym razem
+
+#!/bin/env php
+<?php
+	printf("Hello world");
+?>
+
+
+bin env szuka programu php czyli interpretera jêzyka php
+
+dalsza czêœæ to kod php
+
+PHP - PHP HyperText Processor
+
+$zmienna - deklaracja zmiennej
+$x = 5;
+$y = 'a';
+
+
+nie trzeba podawaæ typu zmiennej
+
+
+deklarowanie funkcji:
+
+function f()
+{}
+
+funkcja mo¿e zwracaæ np boolean kiedy jest Ÿle albo int kiedy jest spoko albo chara kiedyœ tam indziej
+
+nie ma pointerów
+
+stringi i arraye istniej¹ 
+
+sk³adania:
+
+$a = array(1,2,3);
+albo
+$a = [1,2,3];
+
+od razu s¹ te¿ gotowa hash table
+
+$staff = ["person" => "value1", "tr" => "tony"];
+staff[tr] zwróci "tony"
+
+tutaj te¿ typy mog¹ byæ ró¿ne, np cos zwracanego mo¿e byæ nawet tablic¹ np
+"tf" => ["tommy","adam"]
+
+dodawanie elemtntów:
+$a [1,2,3];
+a[] = 4;
+wtedy a to : [1,2,3,4]
+
+a dla associative array
+$staff["total"] = 3;
+$colors["b"] = "blue"	//dodawanie elemtnu
+doda to po³¹cznie 
+
+count($staff); // zwróci rozmiar talbicy
+
+
+stringi mog¹ byæ oznaczane przez "" albo ''
+
+
+
+trikasy na stringach:
+$n = 5;
+$s = 'n is '.$n;				// . oznacza sklejanie stringów
+
+"n is $n"		n is 5
+'n is $n'		n is $n
+
+
+$s = 'string'
+$s = "string"		//tuatj to samo
+
+
+$n = 5
+$s = 'n is ' . $n	//n is 5
+$s = 'n is $n'		//n is $n
+
+$s = "n is $n" 		//n is 5
+
+
+dodawanie tablicy do string czyli wklejenie tekstu z tablicy do stringa
+$s = "{colors['b']}"
+
+do funkcji printf mo¿na wys³aæ w³aœciwie co siê chce
+
+pêtla foreach
+$array = [1,2,3];
+foreach($array as $number)
+{
+	print($number . "\n");
+}
+
+jeœli mamy jakieœ funkcje w pliku php i chcê je mieæ w innym pliku dodajê linijkê
+
+require_once()
+
+np
+
+<?php
+
+function add($a, $b)
+{
+	return a+b;
+}
+
+?>
+
+
+w innym pliku mogê teraz dodaæ linijkê
+require_once(__DIR__."/math.php");
+__DIR__ // current directory
+ta funkcja wkleja do treœci naszego pliku ca³¹ zawartoœæ tego co podamy 
+
+
+nie potrzeba prototypów
+
+stringi dzia³aj¹ te¿ jak tablice wiêc mo¿na siê odwo³ywaæ do pojedyñczych charów
+
+
+obok metody get jest jeszcze metoda post która wysy³a 
+
+superglobals for php:
+$_COOKIE
+$_GET
+$_POST
+$_SERVER
+$_SESSION
+
+otwieraj¹c stronê internetow¹ bez podawania konkretnego pliku serwer sam dobierze plik, zazwyczaj bêdzie to default.coœ
+
+
+php: metoda print_r() - print recursevly - drukuje ca³a zawartoœæ np tablicy
+
+
+u¿ywanie sesji:
+aby u¿ywaæ zmiennej $_SESSION
+nale¿y najpierw wywo³aæ metodê
+session_start();
+
+session_destroy();	- niszczy dane z sesji
+
+
+jeœli w funkcji w php u¿ywam zmiennych globalnych to trzeba o tym napisaæ
+global zmienna1;
+
+isset(tablics[cos]) sprawdza czy to istnieje
+
+readLine(string) pozwala pobraæ stringa od usera, zwraca go jako zmienn¹ a string to tekst który zostanie userowy wyœwietlony
+
+== - sprawdzanie czy coœ jest równe po odpowiednim castowaniu typów
+=== sprawdza czy coœ jest równe i tego samego typu
+
+foreach ($array as $key => $value)
+mo¿na odnosiæ siê do $key i do $ value
+
+$b = "1" + "1"; //po czymœ takim $b to 2 :P
+gettype() zwraca typ zmiennej
+
+"A" + 1 = 2 :P to jest dziwne

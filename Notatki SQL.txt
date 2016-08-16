@@ -1,0 +1,75 @@
+SQL
+Structured
+Query
+Language
+
+jêzyk sk³adaj¹cy siê ze standardowych poleceñ do baz danych
+
+SELECT
+INSERT
+UPDATE
+DELETE
+
+baza danych mo¿e zawieraæ wiele tablic
+tablice zaiweraj¹ kolumny i wiersze
+
+za³ó¿my ¿e mamy tablicê cupcake_cupboard która zaiera info o ciastkach
+kolumny(atrybuty) to: CakeID, CakeType, CakeColor, CakeIsNice
+
+SELECT:
+SELECT * FROM cupcake_cupboard	//zwraca kolumny i wiersze wszystkie z cupcake_cupboard
+* - all the columns
+
+SELECT CakeID, CakeType FROM cupcake_cupboard // zwraca dane z tych 2 kolumn
+
+SELECT * FROM cupcake_cupboard WHERE CakeIsNice = false / zwraca dane z wsztyskich kolumn ale tylko tam gdzie cake nie jest nice
+
+
+INSERT:
+INSERT INTO cupcake_cupboard (CakeType,CakeColormCakeIsNice) VALUES ('Mint','Light',true)
+kolumna CakeID ma autoinkrementacjê wiêc nie trzeba jej rêcznie zwiêkszaæ
+
+UPDATE:
+UPDATE cupcake_cupboard SET CakeIsNice = true WHERE CakeIsNice = false AND CakeType = 'chocolate'
+
+DELETE:
+DELETE FROM cupcake_cupboard WHERE CakeId = 1
+
+zazwyczaj w SQL kiedy mówi siê o nazwie bazy danych u¿ywa siê ` takiego znaczka np:
+`baza_danych`
+A_I w phpmyadmin - auto increment
+typy danych w SQL:
+char - z góry ustalona iloœæ liter (dok³adnie tyle)
+varchar - dowolna iloœæ charów ale z okreœloym maksimum
+text - 2^16 liter max
+
+SQL ma do wyboru ró¿ne storage engine
+
+INSERT INTO table (id,symbol,shares) VALUES(6,"FREE,10)
+ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)
+
+transakcja w SQL to odpowiednik metody synchronizowanej w Javie
+
+START TRANSACTION;
+UPDATE account SET balance = balance - 100 WHERE accountId = 1
+UPDATE account SET balance = balance + 100 WHERE accountId = 2
+COMMIT;
+
+? w fukcji query w php to miejsce na jak¹œ zmienn¹ np
+print("zmienna = ?",$zmienna);
+
+u¿ywaæ PDO do query do sql
+
+
+
+
+
+If, though, your INSERT succeeds, know that you can find out which id was assigned to that user with code like the below.
+
+$rows = query("SELECT LAST_INSERT_ID() AS id");
+$id = $rows[0]["id"];
+
+sql pozwala na coœ takiego jak joint primairy key gdzie primary jest wartoœci¹ kilku kolumna naraz
+
+INSERT INTO table (id, symbol, shares) VALUES(6, "FREE", 10) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares) 
+instrucja warunkowa jeœli klucz który mia³ byæ unikatowy  siê powtarza

@@ -1,0 +1,18 @@
+Experienced developers sometimes use the shorthand $() for $( document ).ready()
+Code included inside $( document ).ready() will only run once the page Document Object Model (DOM) is ready
+
+
+link Selecting Elements by ID
+$( "#myId" ); // Note IDs must be unique per page.
+
+
+link Selecting Elements by Class Name
+$( ".myClass" );
+
+
+link Selecting Elements by Attribute
+$( "input[name='first_name']" ); // Beware, this can be very slow in older browsers
+
+
+link Selecting Elements by Compound CSS Selector
+$( "#contents ul.people li" );

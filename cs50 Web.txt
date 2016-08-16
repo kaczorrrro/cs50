@@ -1,0 +1,55 @@
+schemat sieci
+komputer - access point - switch - router - internet
+
+gateway = router
+
+DHCP - dynamic host configuration protocol
+serwer który nadaje komputerowi unikatowy adres ip
+
+DNS - domain name system
+
+nslookup adres
+zwraca w terminalu adres ip serwera
+
+TCP - transmition control protocol
+
+21 - ftp
+53 - DNS
+80 - http
+443 - https
+
+traceroute œledzi trasê pakietów
+
+slash na koñcu adresu strony np
+facebook.com/
+którego zazwyczaj przegl¹darki nie pokazuj¹ oznacza home directory
+
+html - hyper text markup language
+odpowiedzi serwera http:\
+200 OK
+301 Moved permanently
+302 Found
+401 Unauthorized
+403 Forbidden
+404 Not found
+500 Internal server error
+
+prywatne adresy ip
+10.0.0.0 - 10.FF.FF.FF
+172.16.0.0 - 172.31.255.255
+192.168.0.0 - 192.168.255.255
+
+na apliance jest zainstalowany sewere w apache
+
+aby zmieniæ ustawienia dostêpu do plików z u¿yciem chmod mo¿na u¿yæ polecenia
+chmod a+r plik
+gdzie a oznacza all, r oznacza read
+
+http - HyperText Transfer Protocol
+
+w forlderze public serwera zazwyczaj jest obrazek favicon.ico któy jest ma³¹ ikonk¹ storny
+
+
+MVC - model view controler
+public - strony które user mo¿e przegl¹daæ w przegl¹darce
+templates - stronki które s¹ kawa³kami strony do renderowania

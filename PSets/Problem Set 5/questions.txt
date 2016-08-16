@@ -1,0 +1,11 @@
+0.  lung sickness and longest - 45 letter - word
+1.  shows how much program uses resources
+2.  16
+3.  to save memoy and not copy their contents that might take lots of space
+4.  in case dictionary contained longer word than predicted
+5.  reads char, and if something in wrong with it, it skips the word and proceeds to next one. when char is null terminator it means the end of word so it checks this word and proceeds to next one
+6.  so it's content cannot change?
+7.  simple array of pointers to strings with pseudo dynamic size or in different implementation (I've made 2 versions) trie with arrays of pointers to structs containing arrays of pointers + place for bool value
+8.  took 0.30 to be completed vs 0.10 for staffs solution on the same text
+9.  removed pointess mallocs or reimplemented it in form of array (little chating here, I was to lazy to implement pseudo dynamic size but it wouldn't be a problem to do it the same way as in GetString from cs50)
+10. trie version consumes lots of memory

@@ -1,0 +1,142 @@
+
+Java Script
+
+" oznacza to samo co '
+stringi mo¿na ³¹czyæ znakiem + 
+
+dodawanie java scriptu do stronki
+<sctipt>
+	kod do wykonania
+	
+	function greet()	//przyk³adowa funkcja
+	{
+		alert('hello, ' + document.getElementById('name').value + "!");
+	}
+</scirpt>
+
+w tym kodzie wykonuje siê coœ oraz zadeklarowana jest funkcja greet
+document to global variable która odnosi siê do danego pliku html, jest w niej funkcja która pozwala dostaæ element po id. Dalej w tym kodzie
+	<form onsubmit="greet(); return false">
+		<input id="name" placeholder="Name" type="text">
+		reszta forma
+	</form>
+wys³anie tego formularza uruchomi kod w funkcji greet która sczyta wartoœæ z pola o id name
+return false sprawia ¿e nic dalej siê nie dzieje
+	
+
+lepszym rozwi¹zanem jest nadanie formularzowi jakiegoœ id a nastêpnie w tagu script (który musi byæ poni¿ej formularza w kodzie) nadaæ polu onsubmit wartoœæ:
+        <form id="demo">
+            <input type="text" id="name"/>
+            <input type="submit" value="submit"/>
+        </form>
+
+            document.getElementById("demo").onsubmit = function() {
+                alert("Hello " + document.getElementById("name").value + "!");
+                return false;
+            }
+
+a w³aœciwie to skierowaæ to pole do funkcji
+
+
+
+
+
+u¿ywanie JQuery
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js "></script>
+
+	//dodaje JQuery do pliku
+
+        <script>
+            $(document).ready(function () {
+                $("#forma").submit(function(event) {
+                alert("hello" + $("#pole").val() + "!");
+                event.preventDefault();
+                });
+            });
+        </script>
+
+do funkcji $ (czyli w³aœciwie JQuery) przekazujemy zmienn¹ globaln¹ dokument, nastêpnie funkcja ready sprawia ¿e wykona siê to co w niej damy dopiero po zakoñczeniu renderowania strony, przekazujemy jej ¿eby ustawi³a dla pola submit funkcjê event której treœæ jest podana dalej
+
+
+
+                $.getJSON(url, function(data) {
+                    alert(data.price);
+                    }); 
+funkcja œci¹ga obiek JSON z url a nastêpnie przekazuje go do funkcji  która jest tutaj podana jako drugi argument
+
+
+            $(function() {
+                $("#forma").submit(function(event) {
+                    var url = "quote.php?symbol=" + $("#symbol").val();
+                    
+                    $.getJSON(url, function(data) {
+                        alert(data.price);
+                    });
+                     
+                    event.preventDefault();
+                });
+            });
+                
+
+analogiczne rozwi¹zanie
+
+jakiœ inny kod z u¿yciem JQuery
+
+        <script>
+        
+            $(document).ready(function() { 
+            
+                $("#forma").submit(function (){
+                    if( $("#forma input[name=pole]").val() == "" )
+                    {
+                        alert("b³¹d");
+                        return false;
+                    }
+                });
+            });
+        </script>
+        
+    </head>
+    
+    <body>
+        <form id="forma">
+            <input type="text" name="pole"/>
+            <input type="text" name="pole2"/>
+            <input type="submit" value="submit"/>
+        </form>
+
+
+
+
+kod html gdzie coœ siê zmienia na stronce
+<html>
+    <head>
+        <title>AJAX-1</title>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js "></script>
+        <script>
+            $(function() {
+                $("#forma").submit(function(event) {
+                    var url = "quote.php?symbol=" + $("#symbol").val();
+                    
+                    $.getJSON(url, function(data) {
+                        $("#price").html(data.price);
+                    });
+                     
+                    event.preventDefault();
+                });
+            });
+                
+
+        </script>
+    </head>
+    <body>
+        <form id="forma">
+            Symbol <input type="text" id="symbol"/>
+            <input type="submit" value="Go"/>
+            <br/>
+            Price <span id="price">to be determined</span>
+        </form>
+        
+    </body>
+</html>

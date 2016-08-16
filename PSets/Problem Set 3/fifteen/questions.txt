@@ -1,0 +1,9 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. from 3x3 to 9x9 (squaras only)
+1. 2D int array
+2. greet()
+3. init, draw, move, won
